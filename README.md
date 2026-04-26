@@ -12,8 +12,9 @@ Gerçek dünya senaryolarına uygun, **3. Normal Form (3NF)** kurallarına tam u
 
 ## Öne Çıkan Özellikler
 
-- **"Askıda Yemek" Modülü:** Trigger destekli bakiye yönetimi ile hayırsever bağışlar havuzda toplanır, ihtiyaç sahipleri havuzdan ücretsiz sipariş verebilir.
+- **"Askıda Yemek" Modülü:** Trigger destekli bakiye yönetimi. Hem nakit hem de **spesifik yemek** bağışını destekler (Yemek bağışında fiyat otomatik hesaplanır).
 - **Ödeme Takibi:** Her siparişin ödeme yöntemi ve durumu ayrı tabloda saklanır.
+- **Saklı Yordamlar (Stored Procedures):** Bağış ve Askıda Sipariş işlemleri hata yakalama (TRY-CATCH) ve işlem güvenliği (Transaction) ile yönetilir.
 - **Yorum & Puanlama:** Müşteri yorumları trigger ile restoranın ortalama puanını otomatik günceller.
 - **Soft Delete:** Hiçbir veri fiziksel olarak silinmez, `IsActive = 0` ile pasife çekilir.
 - **3 View, 3 Trigger, 4 Index** ile tam sektör standardında bir yapı.

@@ -45,9 +45,11 @@ Bu doküman, sistemin tüm iş mantığını, kısıtlamalarını ve "Askıda Ye
 ## 6. "Askıda Yemek" Modülü — Merkezi İş Mantığı
 
 ### Bağış Süreci
-- Hayırsever müşteriler `Bagislar` tablosuna bağış kaydeder.
+- Hayırsever müşteriler `Bagislar` tablosuna bakiye veya **spesifik bir yemek** bağışlar.
 - Bağış miktarı **0'dan büyük** olmalıdır (CHECK constraint).
 - Bağış **anonim** yapılabilir (`KullaniciID = NULL`).
+- **Nakit Bağış:** Miktar doğrudan havuza eklenir.
+- **Yemek Bağışı:** Seçilen ürünün adet bazlı bağışıdır. Sistem, ürünün fiyatını otomatik çekerek havuza TL karşılığını ekler.
 - Yeni bağış eklendiğinde **Trigger** (`trg_HavuzBakiyeGuncelle`) devreye girer ve `AskidaYemekHavuzu.ToplamBakiye` otomatik artar.
 
 ### Kullanım Süreci
@@ -59,6 +61,13 @@ Bu doküman, sistemin tüm iş mantığını, kısıtlamalarını ve "Askıda Ye
 ### Anonimlik
 - `Bagislar.KullaniciID` alanı **NULL** kabul eder.
 - Raporlarda anonim bağışçılar "Hayırsever" olarak görünür.
+
+## 7. Gelişmiş Özellikler — Saklı Yordamlar (Stored Procedures)
+
+Sistemdeki kritik işlemler, veri bütünlüğünü korumak için Saklı Yordamlar üzerinden yürütülür:
+- **`usp_ParaBagisYap`**: Nakit bağışlarını TRY-CATCH ve TRANSACTION bloklarıyla güvenli şekilde işler.
+- **`usp_YemekBagisYap`**: Belirli bir restorandan yemek bağışı yapılmasını sağlar. Sistem, ürünün bağış anındaki güncel fiyatını hesaplayarak havuza nakit karşılığını aktarır.
+- **`usp_AskidaSiparisVer`**: İhtiyaç sahibinin doğrulanması, havuz bakiye kontrolü ve sipariş kaydını tek bir atomik işlemde gerçekleştirir.
 
 ## 7. Veri Güvenliği — Soft Delete
 
