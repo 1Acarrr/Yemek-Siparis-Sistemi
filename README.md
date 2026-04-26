@@ -10,6 +10,10 @@
 
 Gerçek dünya senaryolarına uygun, **3. Normal Form (3NF)** kurallarına tam uyumlu, 13 tablodan oluşan ilişkisel bir veritabanı tasarımıdır.
 
+## Varlık-İlişki (ER) Diyagramı
+
+![ER Diyagramı](docs/ER_Diyagrami.png)
+
 ## Öne Çıkan Özellikler
 
 - **"Askıda Yemek" Modülü:** Trigger destekli bakiye yönetimi. Hem nakit hem de **spesifik yemek** bağışını destekler (Yemek bağışında fiyat otomatik hesaplanır).
