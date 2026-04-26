@@ -16,5 +16,5 @@ Gerçek dünya senaryolarına uygun, ölçeklenebilir ve en az 3. Normal Form (3
 - `/scripts`: SQL DDL, DML ve programlanabilirlik kodları.
 
 ---
-**Öğrenci:** İsa Acar, 23390008049 
+**Öğrenci:** [İsa Acar,23390008049]
 **Ders:** Veritabanı Yönetim Sistemleri-1 Dönem Projesi
